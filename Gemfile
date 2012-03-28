@@ -22,5 +22,8 @@ gem "bson_ext", "~> 1.5"
 
 gem 'simple_form', '~> 2.0.0'
 
+gem 'haml-rails', '>= 0.3.4', :group => :development
+gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
+
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
