@@ -1,5 +1,11 @@
 %li.span3
-  .group_card.thumbnail
+  .group-card.thumbnail
+    = link_to "Delete Group", group,
+        title: "Delete Group",
+        confirm: "Are you sure, you want to delete this group?",
+        method: :delete,
+        class: 'delete-group icon-remove'
+
     = image_tag group.avatar.url, alt: group.name, title: group.name
     .caption
       = link_to group.name, group.url

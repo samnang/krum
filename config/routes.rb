@@ -1,7 +1,7 @@
 GroupsSharevision::Application.routes.draw do
   root :to => 'groups#index'
 
-  resources :groups, only: [:index, :new, :create]
+  resources :groups, except: [:edit, :update]
 
   match "/images/uploads/*path" => "gridfs#serve"
 end
