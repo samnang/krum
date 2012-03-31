@@ -1,0 +1,16 @@
+#new-group-modal.modal.hide.fade
+  = simple_form_for :group, url: submit_groups_path do |f|
+    .modal-header
+      %a.close{"data-dismiss" => "modal"} ×
+      %h3 Submit New Group
+    .modal-body
+      %span.label.label-info Note
+      New group will not show immediately, it will send to administrator to be moderated.
+      %legend New Group
+      = f.input :name
+      = f.input :url, :as => :url
+      = f.input :email, :as => :email, :required => false
+    .modal-footer
+      %a.btn{"data-dismiss" => "modal", :href => "#"} Close
+      = f.submit 'Submit', :class => 'btn btn-primary'
+%a.btn.btn-primary.submit-new-group Submit New Group
