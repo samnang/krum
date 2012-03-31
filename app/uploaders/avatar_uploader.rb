@@ -6,6 +6,6 @@ class AvatarUploader < CarrierWave::Uploader::Base
   end
 
   def default_url
-    "/assets/group/fallback/default.png"
+    "/assets/fallback_group.png"
   end
 end
