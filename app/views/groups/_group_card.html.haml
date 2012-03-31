@@ -1,5 +1,6 @@
-.span3
-  .group
-    = image_tag group.avatar.url, alt: group.name, title: group.name, :width => 200
-    = link_to group.name, group.url
-    = mail_to group.email
+%li.span3
+  .group_card.thumbnail
+    = image_tag group.avatar.url, alt: group.name, title: group.name
+    .caption
+      = link_to group.name, group.url
+      = mail_to group.email

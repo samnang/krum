@@ -1,6 +1,4 @@
 class GroupsController < ApplicationController
-  respond_to :html
-
   def index
     @groups = Group.all
   end
@@ -15,7 +13,10 @@ class GroupsController < ApplicationController
 
   def create
     @group = Group.new(params[:group])
-    @group.save
-    respond_with(@group)
+    if @group.save
+      redirect_to @group, notice: "Added new group sucessfully."
+    else
+      render :new
+    end
   end
 end
