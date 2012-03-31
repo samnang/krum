@@ -1,0 +1,13 @@
+= simple_form_for @group do |f|
+  = f.error_notification if f.error_notification
+
+  %legend New Group
+
+  = f.input :name
+  = f.input :url, :as => :url
+  = f.input :email, :as => :email
+  = f.input :avatar
+
+  .form-actions
+    = f.button :submit, :class => 'btn-primary'
+    = submit_tag 'Cancel', :type => :reset, :class => "btn btn-danger"

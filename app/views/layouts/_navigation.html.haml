@@ -1,0 +1,10 @@
+.navbar.navbar-fixed-top
+  .navbar-inner
+    .container
+      %a.brand{href: root_path}
+        ShareVision
+      %ul.nav
+        %li.active
+          = link_to "Groups", groups_path
+        %li
+          = link_to "Events", "#"

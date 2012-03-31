@@ -1,6 +1,13 @@
-%h1 Lists
+.row
+  %h1.span2 Lists
+  .span2.offset8.new_group= link_to "Add New Group", new_group_path
 
 - @groups.each_slice(4) do |columns|
   .row
-    - columns.each do |g|
-      .span3.group= g
+    - columns.each do |group|
+      .span3
+        .group
+          = image_tag group.avatar.url, :alt => group.name, :width => 200
+          = group.name
+          = group.url
+          = group.email

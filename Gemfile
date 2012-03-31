@@ -15,15 +15,19 @@ group :assets do
   gem 'bootstrap-sass', '~> 2.0'
 end
 
+group :development do
+  gem 'haml-rails', '>= 0.3.4'
+
+  gem 'pry'
+end
+
 gem 'jquery-rails'
 
 gem "mongoid", "~> 2.4"
 gem "bson_ext", "~> 1.5"
+gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 
 gem 'simple_form', '~> 2.0.0'
-
-gem 'haml-rails', '>= 0.3.4', :group => :development
-gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
