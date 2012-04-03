@@ -14,3 +14,21 @@ feature "Viewing groups" do
     end
   end
 end
+
+feature "Adding a new group" do
+  scenario "added successfully" do
+    visit new_group_path
+
+    within("#new_group") do
+      fill_in 'Name', :with => 'ShareVision'
+      fill_in 'Url', :with => 'http://sharevisionteam.org'
+      fill_in 'Email', :with => 'info@sharevisionteam.org'
+      attach_file 'Avatar', File.join(Rails.root, 'app/assets/images/fallback_group.png')
+      
+      click_on "Create Group"
+    end
+
+    page.has_content?("Group has been added successfully.")
+    page.has_content?('ShareVision')
+  end
+end
