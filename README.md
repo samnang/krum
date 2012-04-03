@@ -8,8 +8,12 @@ It should be a directory to list groups in local community, so it could helps pe
 * Rails 3.2.2
 * SimpleForm + Twitter Bootstrap
 * Mongoid
-* Haml
 * Carrierwave (Upload to GridFS)
+* CoffeeScript
+* Haml
+* RSpec
+* Capybara
+* Factory Girl
 
 ------
 
