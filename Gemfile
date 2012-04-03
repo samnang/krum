@@ -22,14 +22,11 @@ group :assets do
 end
 
 group :development, :test do
+  gem 'haml-rails', '>= 0.3.4'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'pry'
   gem 'pry-rails'
-end
-
-group :development do
-  gem 'haml-rails', '>= 0.3.4'
 end
 
 group :test do
