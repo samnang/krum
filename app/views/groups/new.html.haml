@@ -6,8 +6,10 @@
   = f.input :name
   = f.input :url, :as => :url
   = f.input :email, :as => :email
+  = f.input :tags, :collection => @tags, :input_html => { :class => 'chosen', :multiple => 'multiple' }
   = f.input :avatar
 
   .form-actions
     = f.button :submit, :class => 'btn-primary'
     = submit_tag 'Cancel', :type => :reset, :class => "btn btn-danger"
+

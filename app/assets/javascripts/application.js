@@ -15,5 +15,6 @@
 //= require bootstrap-alert
 //= require bootstrap-modal
 //= require bootstrap-transition
+//= require chosen.jquery.min
 //= require_tree .
 
