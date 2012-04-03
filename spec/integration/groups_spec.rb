@@ -17,7 +17,8 @@ end
 
 feature "Adding a new group" do
   scenario "added successfully" do
-    visit new_group_path
+    visit root_path
+    click_link "Add New Group"
 
     within("#new_group") do
       fill_in 'Name', :with => 'ShareVision'
