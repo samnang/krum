@@ -2,6 +2,12 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.2'
 
+gem 'jquery-rails'
+gem "mongoid", "~> 2.4"
+gem "bson_ext", "~> 1.5"
+gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
+gem 'simple_form', '~> 2.0.0'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -15,19 +21,22 @@ group :assets do
   gem 'bootstrap-sass', '~> 2.0'
 end
 
-group :development do
-  gem 'haml-rails', '>= 0.3.4'
-
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
   gem 'pry'
+  gem 'pry-rails'
 end
 
-gem 'jquery-rails'
+group :development do
+  gem 'haml-rails', '>= 0.3.4'
+end
 
-gem "mongoid", "~> 2.4"
-gem "bson_ext", "~> 1.5"
-gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
-
-gem 'simple_form', '~> 2.0.0'
+group :test do
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'launchy'
+end
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
