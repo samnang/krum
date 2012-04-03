@@ -6,6 +6,7 @@
   = f.input :name
   = f.input :url, :as => :url
   = f.input :email, :as => :email
+  = f.input :tag_list, :label => "Tags", :input_html => { :data => {'tags' => @tags} }
   = f.input :avatar
 
   .form-actions
