@@ -10,6 +10,10 @@ class GroupsController < ApplicationController
 
   def create
     @group = Group.new(params[:group])
+
+    #Chose-jQuery plugin sends an addtional blank first item
+    @group.tags.delete_at(0)
+
     if @group.save
       redirect_to groups_path, notice: "Group has been added successfully."
     else
