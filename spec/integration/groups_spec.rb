@@ -2,15 +2,25 @@ require 'spec_helper'
 
 feature "Viewing groups" do
   background do
-    2.times {|i| Factory(:group, name: "Group#{i}") }
+    2.times {|i| Factory(:group, name: "Group #{i}") }
   end
 
   scenario "Listing all groups" do
     visit root_path
 
     within("#groups") do
-      page.has_content?('Group 0')
-      page.has_content?('Group 1')
+      page.should have_content('Group 0')
+      page.should have_content('Group 1')
+    end
+  end
+
+  scenario "a project has tags" do
+    a_group_has_tags = Factory(:group, name: "Tagging Group", tags: ['ruby', 'javascript'])
+    visit root_path
+
+    within("#group_#{a_group_has_tags.id}") do
+      page.should have_content("ruby")
+      page.should have_content("javascript")
     end
   end
 end
@@ -38,8 +48,8 @@ feature "Adding a new group" do
       click_on "Create Group"
     end
 
-    page.has_content?("Group has been added successfully.")
-    page.has_content?('ShareVision')
+    page.should have_content("Group has been added successfully.")
+    page.should have_content('ShareVision')
 
     latest_group.should have_tag('ruby')
     latest_group.should have_tag('rails')

@@ -1,0 +1,6 @@
+- if tags.present?
+  %ul.tags
+    - tags.each do |tag|
+      - unless tag.blank?
+        %li
+          %span.label.label-info= tag

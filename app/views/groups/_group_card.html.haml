@@ -10,3 +10,4 @@
     .caption
       = link_to group.name, group.url
       = mail_to group.email
+      = render 'groups/tags', tags: group.tags
