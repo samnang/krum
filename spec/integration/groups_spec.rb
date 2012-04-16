@@ -38,9 +38,10 @@ feature "Adding a new group" do
     click_link "Add New Group"
 
     within("#new_group") do
-      fill_in 'Name', :with => 'ShareVision'
+      fill_in 'Name', :with => 'ShareVisionTeam'
       fill_in 'Url', :with => 'http://sharevisionteam.org'
       fill_in 'Email', :with => 'info@sharevisionteam.org'
+      fill_in 'Description', :with => 'My description'
       select 'ruby', :from => 'Tags'
       select 'rails', :from => 'Tags'
       attach_file 'Avatar', File.join(Rails.root, 'app/assets/images/fallback_group.png')
@@ -49,7 +50,7 @@ feature "Adding a new group" do
     end
 
     page.should have_content("Group has been added successfully.")
-    page.should have_content('ShareVision')
+    page.should have_content('ShareVisionTeam')
 
     latest_group.should have_tag('ruby')
     latest_group.should have_tag('rails')

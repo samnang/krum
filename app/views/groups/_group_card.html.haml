@@ -10,4 +10,5 @@
     .caption
       = link_to group.name, group.url
       = mail_to group.email
+      %p.description= group.description
       = render 'groups/tags', tags: group.tags

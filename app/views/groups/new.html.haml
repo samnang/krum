@@ -6,10 +6,11 @@
   = f.input :name
   = f.input :url, :as => :url
   = f.input :email, :as => :email
+  = f.input :description, :as => :text, :hint => "Keep it concise in 1 or 2 paragraphs only.", :input_html => {:rows => 5}
   = f.input :tags, :collection => @tags, 
       :input_html => {"data-placeholder" => "Choose tags", :class => 'chosen', :multiple => 'multiple' }
   = f.input :avatar
 
   .form-actions
     = f.button :submit, :class => 'btn-primary'
-    = submit_tag 'Cancel', :type => :reset, :class => "btn btn-danger"
+    = submit_tag 'Cancel', :type => :reset, :title => "Reset form", :class => "btn btn-danger"
