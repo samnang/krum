@@ -1,7 +1,12 @@
 class GroupsController < ApplicationController
   def index
     @groups = Group.scoped
-    @groups = @groups.where(:name => /#{params[:q]}/i) if params[:q].present?
+
+    if params[:q].present?
+      query = /#{params[:q]}/i
+      @groups = @groups.any_of({:name => query}, {:tags => query})
+    end
+
     @groups = GroupDecorator.decorate(@groups)
   end
 
