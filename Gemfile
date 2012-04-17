@@ -30,6 +30,11 @@ group :development, :test do
   gem 'pry-rails'
 end
 
+group :development do
+  gem 'thin'
+  gem 'quiet_assets'
+end
+
 group :test do
   gem 'capybara'
   gem 'database_cleaner'
