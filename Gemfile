@@ -7,6 +7,7 @@ gem "mongoid", "~> 2.4"
 gem "bson_ext", "~> 1.5"
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 gem 'simple_form', '~> 2.0.0'
+gem "draper"
 
 # Gems used only for assets and not required
 # in production environments by default.

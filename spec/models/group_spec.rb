@@ -11,8 +11,8 @@ describe Group do
       Factory.build(:group, name: nil).should_not be_valid
     end
 
-    it 'is invalid without an url' do
-      Factory.build(:group, url: nil).should_not be_valid
+    it 'is invalid without primary url' do
+      Factory.build(:group, url_1: nil).should_not be_valid
     end
   end
 end

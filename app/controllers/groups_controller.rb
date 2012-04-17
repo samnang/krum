@@ -1,6 +1,6 @@
 class GroupsController < ApplicationController
   def index
-    @groups = Group.all
+    @groups = GroupDecorator.decorate(Group.all)
   end
 
   def new
@@ -29,7 +29,7 @@ class GroupsController < ApplicationController
 
   # Submit new group
   def submit
-    # Send email to administrator with params[:group]
+    # Send email to administrator with params[:new_group]
 
     redirect_to :back, notice: "The group will be moderated, and hopefully it will be added to site soon."
   end

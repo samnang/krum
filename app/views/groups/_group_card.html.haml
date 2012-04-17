@@ -1,14 +1,11 @@
 %li.span3
-  %div[group]{class: 'group-card thumbnail'}
-    = link_to "Delete Group", group,
-        title: "Delete Group",
-        confirm: "Are you sure, you want to delete this group?",
-        method: :delete,
-        class: 'delete-group icon-remove'
+  %div[group.model]{class: 'group-card thumbnail'}
+    = group.delete_link
 
     = image_tag group.avatar.url, alt: group.name, title: group.name
     .caption
-      = link_to group.name, group.url
-      = mail_to group.email
+      = group.name_link
+      = group.email_link
+      = group.url_2_link
       %p.description= group.description
-      = render 'groups/tags', tags: group.tags
+      = render 'tags', tags: group.tags

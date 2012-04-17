@@ -1,5 +1,5 @@
 #new-group-modal.modal.hide.fade
-  = simple_form_for :group, url: submit_groups_path do |f|
+  = simple_form_for :new_group, url: submit_groups_path do |f|
     .modal-header
       %a.close{"data-dismiss" => "modal"} ×
       %h3 Submit New Group
@@ -9,8 +9,11 @@
       %legend New Group
       = f.input :name
       = f.input :url, :as => :url
-      = f.input :email, :as => :email, :required => false
+      = f.input :email, :as => :email
+      = f.input :tags, :collection => Group.tags, required: false,
+          :input_html => {"data-placeholder" => "Choose tags", :class => 'chosen', :multiple => 'multiple' }
     .modal-footer
       %a.btn{"data-dismiss" => "modal", :href => "#"} Close
       = f.submit 'Submit', :class => 'btn btn-primary'
+
 %a.btn.btn-primary.submit-new-group Submit New Group

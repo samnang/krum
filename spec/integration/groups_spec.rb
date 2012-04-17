@@ -39,7 +39,7 @@ feature "Adding a new group" do
 
     within("#new_group") do
       fill_in 'Name', :with => 'ShareVisionTeam'
-      fill_in 'Url', :with => 'http://sharevisionteam.org'
+      fill_in 'Url 1', :with => 'http://sharevisionteam.org'
       fill_in 'Email', :with => 'info@sharevisionteam.org'
       fill_in 'Description', :with => 'My description'
       select 'ruby', :from => 'Tags'
