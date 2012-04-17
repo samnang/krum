@@ -29,7 +29,6 @@ feature "Adding a new group" do
   background do
     Factory(:group, :name => "Group1", :tags => ['ruby', 'rails'])
     Factory(:group, :name => "Group2", :tags => ['javascript', 'nodejs'])
-    # Duplicate tag names
     Factory(:group, :name => "Group3", :tags => ['javascript', 'ruby'])
   end
 
@@ -58,5 +57,28 @@ feature "Adding a new group" do
 
   def latest_group
     @latest_group ||= Group.last
+  end
+end
+
+feature "Searching groups" do
+  background do
+    Factory(:group, :name => "ShareVision Team", :tags => ['education', 'ruby', 'rails'])
+    Factory(:group, :name => "Group2", :tags => ['javascript', 'nodejs'])
+    Factory(:group, :name => "Group3", :tags => ['javascript', 'ruby'])
+  end
+
+  scenario "found by name" do
+    visit root_path
+
+    search_with("ShareVision")
+
+    page.should have_content("ShareVision Team")
+    page.should_not have_content("Group2")
+    page.should_not have_content("Group3")
+  end
+
+  def search_with(query)
+    fill_in "q", :with => "ShareVision"
+    click_on "Search"
   end
 end

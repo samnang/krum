@@ -1,6 +1,8 @@
 class GroupsController < ApplicationController
   def index
-    @groups = GroupDecorator.decorate(Group.all)
+    @groups = Group.scoped
+    @groups = @groups.where(:name => /#{params[:q]}/i) if params[:q].present?
+    @groups = GroupDecorator.decorate(@groups)
   end
 
   def new
