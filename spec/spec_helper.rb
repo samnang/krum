@@ -9,6 +9,11 @@ require 'rspec/autorun'
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
+def admin_sign_in
+  page.driver.browser.authorize 'admin', 'password'
+  visit admin_path
+end
+
 RSpec.configure do |config|
   # If true, the base class of anonymous controllers will be inferred
   # automatically. This will be the default behavior in future versions of

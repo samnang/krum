@@ -1,4 +1,6 @@
 class GroupsController < ApplicationController
+  before_filter :admin_required, :only => [:new, :create, :destroy]
+
   def index
     @groups = Group.scoped
 

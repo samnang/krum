@@ -33,7 +33,10 @@ feature "Adding a new group" do
   end
 
   scenario "added successfully" do
+    admin_sign_in
+
     visit root_path
+
     click_link "Add New Group"
 
     within("#new_group") do
