@@ -9,6 +9,7 @@ gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 gem 'simple_form', '~> 2.0.0'
 gem "draper"
 gem 'haml-rails', '>= 0.3.4'
+gem 'thin'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -28,10 +29,6 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'pry'
   gem 'pry-rails'
-end
-
-group :development do
-  gem 'thin'
   gem 'quiet_assets'
 end
 
