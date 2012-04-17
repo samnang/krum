@@ -8,6 +8,7 @@ gem "bson_ext", "~> 1.5"
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 gem 'simple_form', '~> 2.0.0'
 gem "draper"
+gem 'haml-rails', '>= 0.3.4'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -23,7 +24,6 @@ group :assets do
 end
 
 group :development, :test do
-  gem 'haml-rails', '>= 0.3.4'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'pry'
