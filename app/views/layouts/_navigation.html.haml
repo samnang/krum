@@ -8,6 +8,6 @@
           = link_to "Groups", groups_path
         %li
           = link_to "Events", "#"
-      %form.navbar-search.pull-right{action: ""}
+      %form.navbar-search.pull-right{action: groups_path}
         %input.search-query.span3{name: "q", value: params[:q], placeholder: "Search", type: "text"}
         %input.submit-button{value: "Search", type: "submit"}
