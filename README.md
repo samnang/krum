@@ -20,7 +20,7 @@ It should be a directory to list groups in local community, so it could helps pe
 
 Samnang Chhun -> [wowkhmer.com](http://wowkhmer.com)
 
-[Full List](https://github.com/samnang/groups_sharevision/contributors)
+[Full List](https://github.com/samnang/krum/contributors)
 
 ------
 
