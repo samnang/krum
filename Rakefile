@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-GroupsSharevision::Application.load_tasks
+Krum::Application.load_tasks

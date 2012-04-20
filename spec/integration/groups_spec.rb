@@ -15,7 +15,7 @@ feature "Viewing groups" do
   end
 
   scenario "a project has tags" do
-    a_group_has_tags = Factory(:group, name: "Tagging Group", tags: ['ruby', 'javascript'])
+    a_group_has_tags = Factory(:group, tags: ['ruby', 'javascript'])
     visit root_path
 
     within("#group_#{a_group_has_tags.id}") do
@@ -27,9 +27,8 @@ end
 
 feature "Adding a new group" do
   background do
-    Factory(:group, :name => "Group1", :tags => ['ruby', 'rails'])
-    Factory(:group, :name => "Group2", :tags => ['javascript', 'nodejs'])
-    Factory(:group, :name => "Group3", :tags => ['javascript', 'ruby'])
+    Factory(:group, tags: ['ruby', 'rails'])
+    Factory(:group, tags: ['javascript', 'ruby'])
   end
 
   scenario "added successfully" do
@@ -40,19 +39,19 @@ feature "Adding a new group" do
     click_link "Add New Group"
 
     within("#new_group") do
-      fill_in 'Name', :with => 'ShareVisionTeam'
-      fill_in 'Url 1', :with => 'http://sharevisionteam.org'
-      fill_in 'Email', :with => 'info@sharevisionteam.org'
-      fill_in 'Description', :with => 'My description'
-      select 'ruby', :from => 'Tags'
-      select 'rails', :from => 'Tags'
+      fill_in 'Name', with: 'My New Group'
+      fill_in 'Url 1', with: 'http://domain.org'
+      fill_in 'Email', with: 'info@domain.org'
+      fill_in 'Description', with: 'My Description'
+      select 'ruby', from: 'Tags'
+      select 'rails', from: 'Tags'
       attach_file 'Avatar', File.join(Rails.root, 'app/assets/images/fallback_group.png')
 
       click_on "Create Group"
     end
 
     page.should have_content("Group has been added successfully.")
-    page.should have_content('ShareVisionTeam')
+    page.should have_content('My New Group')
 
     latest_group.should have_tag('ruby')
     latest_group.should have_tag('rails')
@@ -65,9 +64,9 @@ end
 
 feature "Searching groups" do
   background do
-    Factory(:group, :name => "Found Group", :tags => ['education', 'ruby', 'rails'])
-    Factory(:group, :name => "Group2", :tags => ['javascript', 'nodejs'])
-    Factory(:group, :name => "Group3", :tags => ['javascript', 'ruby'])
+    Factory(:group, name: "Found Group", tags: ['education', 'ruby', 'rails'])
+    Factory(:group, name: "Group2", tags: ['javascript', 'nodejs'])
+    Factory(:group, name: "Group3", tags: ['javascript', 'ruby'])
   end
 
   scenario "found by name" do
@@ -91,7 +90,7 @@ feature "Searching groups" do
   end
 
   def search_with(query)
-    fill_in "q", :with => query
+    fill_in "q", with: query
     click_on "Search"
   end
 end

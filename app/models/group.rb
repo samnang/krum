@@ -17,7 +17,7 @@ class Group
   def self.search_for(keyword)
     query = /#{keyword}/i
 
-    any_of({:name => query}, {:tags => query})
+    any_of({name: query}, {tags: query})
   end
 
   private

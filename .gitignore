@@ -11,3 +11,6 @@
 /log/*.log
 /tmp
 .sass-cache
+
+# Ignore upload tmp files
+/public/uploads

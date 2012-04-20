@@ -1,4 +1,4 @@
-# Groups - ShareVision Team
+# Krum - ShareVision Team
 
 It should be a directory to list groups in local community, so it could helps people that have the same interests found each other.
 
@@ -24,4 +24,4 @@ Samnang Chhun -> [wowkhmer.com](http://wowkhmer.com)
 
 ------
 
-Groups - a [ShareVisionTeam](http://sharevisionteam.org) project
+Krum - a [ShareVisionTeam](http://sharevisionteam.org) project

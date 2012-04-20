@@ -2,4 +2,4 @@
 require File.expand_path('../application', __FILE__)
 
 # Initialize the rails application
-GroupsSharevision::Application.initialize!
+Krum::Application.initialize!

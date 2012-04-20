@@ -15,7 +15,7 @@ if defined?(Bundler)
   # Bundler.require(:default, :assets, Rails.env)
 end
 
-module GroupsSharevision
+module Krum
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
@@ -76,6 +76,6 @@ module GroupsSharevision
       g.fixture_replacement :factory_girl, :dir => "spec/factories"
     end
 
-    config.middleware.use "ServeGridfsImage"
+    config.middleware.use "Krum::ServeGridfsImage"
   end
 end

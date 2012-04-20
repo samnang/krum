@@ -1,4 +1,4 @@
-GroupsSharevision::Application.routes.draw do
+Krum::Application.routes.draw do
   root :to => 'groups#index'
   match '/admin' => 'application#admin_sign_in'
 

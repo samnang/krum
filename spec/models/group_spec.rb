@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Group do
   it "removes blank tags before saving" do
-    group = Factory.build(:group, :tags => ["", "Ruby", " "])
+    group = Factory.build(:group, tags: ["", "Ruby", " "])
 
     group.valid?
 
