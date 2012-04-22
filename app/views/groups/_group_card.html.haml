@@ -1,11 +1,11 @@
-%li.span3
-  %div[group.model]{class: 'group-card thumbnail'}
+%li.span4
+  %div.group-card.thumbnail[group.model]
     = group.delete_link
 
-    = image_tag group.avatar.url, alt: group.name, title: group.name
+    = group.logo_link
     .caption
-      = group.name_link
-      = group.email_link
-      = group.url_2_link
+      %p= group.name_link
+      %p= group.url_2_link
+      %p= group.email_link
       %p.description= group.description
       = render 'tags', tags: group.tags

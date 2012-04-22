@@ -1,8 +1,14 @@
 class GroupDecorator < ApplicationDecorator
   decorates :group
 
+  def logo_link
+    h.link_to h.image_tag(group.avatar.url, alt: group.name),
+              group.url_1,
+              title: group.name
+  end
+
   def name_link
-    h.link_to group.name, group.url_1
+    h.link_to group.name, group.url_1 unless group.avatar?
   end
 
   def email_link

@@ -8,6 +8,13 @@ div.group-card
   -moz-border-radius: 3px
   border-radius: 3px
 
+  // thumbnail image
+  &a > img
+    display: block
+    max-width: 100%
+    margin-left: auto
+    margin-right: auto
+
   &a.delete-group
     display: none
     position: absolute
@@ -15,13 +22,20 @@ div.group-card
     right: 5px
     text-indent: -9999px
 
-  .description
-    margin-top: 10px
-
   .tags
     margin-left: 0
     &li
       display: inline
+      line-height: 22px
+
+a.submit-new-group
+  position: fixed
+  top: 40%
+  left: -52px
+  transform: rotate(-90deg)
+  -webkit-transform: rotate(-90deg)
+  -moz-transform: rotate(-90deg)
+  -ms-transform: rotate(-90deg)
 
 div.new-group
   position: relative

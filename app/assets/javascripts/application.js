@@ -16,5 +16,5 @@
 //= require bootstrap-modal
 //= require bootstrap-transition
 //= require chosen.jquery.min
+//= require jquery.masonry.min
 //= require_tree .
-

@@ -51,10 +51,9 @@ feature "Adding a new group" do
     end
 
     page.should have_content("Group has been added successfully.")
-    page.should have_content('My New Group')
 
-    latest_group.should have_tag('ruby')
-    latest_group.should have_tag('rails')
+    latest_group.name.should == 'My New Group'
+    latest_group.tags.should == %w(ruby rails)
   end
 
   def latest_group

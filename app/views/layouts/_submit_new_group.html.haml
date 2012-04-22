@@ -13,7 +13,7 @@
       = f.input :tags, :collection => Group.tags, required: false,
           :input_html => {"data-placeholder" => "Choose tags", :class => 'chosen', :multiple => 'multiple' }
     .modal-footer
-      %a.btn{"data-dismiss" => "modal", :href => "#"} Close
       = f.submit 'Submit', :class => 'btn btn-primary'
+      %a.btn{"data-dismiss" => "modal", :href => "#"} Close
 
 %a.btn.btn-primary.submit-new-group Submit New Group
