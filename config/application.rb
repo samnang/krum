@@ -3,8 +3,8 @@ require File.expand_path('../boot', __FILE__)
 # Pick the frameworks you want:
 require "action_controller/railtie"
 require "sprockets/railtie"
+require "action_mailer/railtie"
 # require "active_record/railtie"
-# require "action_mailer/railtie"
 # require "active_resource/railtie"
 # require "rails/test_unit/railtie"
 
@@ -16,6 +16,10 @@ if defined?(Bundler)
 end
 
 module Krum
+  def self.config
+    Application.config
+  end
+
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
@@ -76,6 +80,9 @@ module Krum
       g.fixture_replacement :factory_girl, :dir => "spec/factories"
     end
 
-    config.middleware.use "Krum::ServeGridfsImage"
+    config.middleware.use "ServeGridfsImage"
+
+    # Load app settings
+    YAML.load_file("#{Rails.root}/config/settings.yml").each {|k, v| config.send("#{k}=", ENV[k] || v) }
   end
 end

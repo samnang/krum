@@ -8,9 +8,9 @@
       New group will not show immediately, it will send to administrator to be moderated.
       %legend New Group
       = f.input :name
-      = f.input :url, :as => :url
-      = f.input :email, :as => :email
-      = f.input :tags, :collection => Group.tags, required: false,
+      = f.input :url_1, :as => :url, :label => "Url"
+      = f.input :email, :as => :email, :required => false
+      = f.input :tags, :collection => Group.tags, :required => false,
           :input_html => {"data-placeholder" => "Choose tags", :class => 'chosen', :multiple => 'multiple' }
     .modal-footer
       = f.submit 'Submit', :class => 'btn btn-primary'

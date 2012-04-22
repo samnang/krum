@@ -1,0 +1,13 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+  %body
+    %h1
+      New Group Request
+    %p
+      %ul
+        %li Name:  #{@group.name}
+        %li Url:   #{link_to @group.url_1, @group.url_1}
+        %li Email: #{@group.email}
+        %li Tags:  #{@group.tag_list}

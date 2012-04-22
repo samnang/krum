@@ -27,11 +27,15 @@ class GroupsController < ApplicationController
     redirect_to groups_path, notice: "Group has been deleted successfully."
   end
 
-  # Submit new group
   def submit
-    # Send email to administrator with params[:new_group]
-    warn "==== Not implemented yet ===="
+    new_group = Group.new(params[:new_group])
+    if new_group.valid?
+      NotifierMailer.new_group(new_group).deliver
+      flash[:notice] = "The group will be moderated, and hopefully it will be added to site soon."
+    else
+      flash[:error] = "You didn't complete all required information on form."
+    end
 
-    redirect_to :back, notice: "The group will be moderated, and hopefully it will be added to site soon."
+    redirect_to :back
   end
 end

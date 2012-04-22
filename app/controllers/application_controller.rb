@@ -12,8 +12,8 @@ class ApplicationController < ActionController::Base
 
   def admin_sign_in
     if authenticate_or_request_with_http_basic do |user_name, password|
-        admin_name = ENV["username"] || "admin"
-        admin_password = ENV["password"] || "password"
+        admin_name = Krum.config.username
+        admin_password = Krum.config.password
         if user_name == admin_name && password == admin_password
           session[:admin] = true
           redirect_to root_path and return true

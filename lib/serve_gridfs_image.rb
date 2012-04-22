@@ -1,6 +1,6 @@
 class ServeGridfsImage
   def initialize(app)
-      @app = app
+    @app = app
   end
 
   def call(env)
