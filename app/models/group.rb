@@ -1,6 +1,7 @@
 class Group
   include Mongoid::Document
   include Mongoid::Document::Taggable
+  include Mongoid::Timestamps
 
   field :name,        type: String
   field :url_1,       type: String
