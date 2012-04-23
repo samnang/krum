@@ -24,21 +24,34 @@ describe Group do
   end
 
   describe ".search_for" do
-    let!(:matched_group_by_name_and_tag) { Factory(:group, name: "My Group Name", tags: ["Ruby"]) }
-    let!(:matched_group_by_tag) { Factory(:group, tags: ["Ruby", "Rails"]) }
-    let!(:mismatched_group) { Factory(:group) }
+    context "keyword is blank" do
+      it "returns all random groups" do
+        2.times { Factory(:group) }
+        blank_keyword = nil
 
-    it "returns matched groups by name" do
-      results = Group.search_for("My Group")
+        results = Group.search_for(blank_keyword)
 
-      results.should == [matched_group_by_name_and_tag]
+        results.should have(2).groups
+      end
     end
 
-    it "returns matched groups by tag" do
-      results = Group.search_for("Ruby")
+    context "keyword is present" do
+      let!(:matched_group_by_name_and_tag) { Factory(:group, name: "My Group Name", tags: ["Ruby"]) }
+      let!(:matched_group_by_tag) { Factory(:group, tags: ["Ruby", "Rails"]) }
+      let!(:mismatched_group) { Factory(:group) }
 
-      results.should have(2).groups
-      results.should_not include mismatched_group
+      it "returns matched groups by name" do
+        results = Group.search_for("My Group")
+
+        results.should == [matched_group_by_name_and_tag]
+      end
+
+      it "returns matched groups by tag" do
+        results = Group.search_for("Ruby")
+
+        results.should have(2).groups
+        results.should_not include mismatched_group
+      end
     end
   end
 end

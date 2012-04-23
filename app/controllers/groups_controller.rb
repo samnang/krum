@@ -2,8 +2,7 @@ class GroupsController < ApplicationController
   before_filter :admin_required, :only => [:new, :create, :destroy]
 
   def index
-    @groups = Group.scoped
-    @groups = @groups.search_for(params[:q]) if params[:q].present?
+    @groups = Group.search_for(params[:q])
     @groups = GroupDecorator.decorate(@groups)
   end
 

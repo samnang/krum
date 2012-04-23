@@ -15,9 +15,16 @@ class Group
   before_validation :clean_empty_tags
 
   def self.search_for(keyword)
-    query = /#{keyword}/i
+    return self.random if keyword.blank?
 
+    query = /#{keyword}/i
     any_of({name: query}, {tags: query})
+  end
+
+  # NOTE: it's probably slow, or check other solutions
+  # http://stackoverflow.com/questions/7759250/mongoid-random-document
+  def self.random
+    all.shuffle
   end
 
   private
