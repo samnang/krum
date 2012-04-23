@@ -1,14 +1,19 @@
 !!! 5
 %html{lang: 'en'}
   %head
+    %meta{charset: "utf-8"}
+    %meta{content: "Krum - ShareVision Team, a directory to list groups in local community, so it could helps people that have the same interests found each other.", name: "description"}
     %title Krum - ShareVision Team
-    = stylesheet_link_tag    "application", :media => "all"
+    = stylesheet_link_tag    "application", media: "all"
     = javascript_include_tag "application"
     = csrf_meta_tags
-  %body
-    = render 'layouts/navigation'
-    = render 'layouts/submit_new_group'
 
+  %body
+    %header
+      = render 'layouts/navigation'
     .container
       = render 'layouts/flash'
       = yield
+      = render 'layouts/footer'
+
+    = render 'layouts/submit_new_group'

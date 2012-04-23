@@ -22,6 +22,10 @@ Samnang Chhun -> [wowkhmer.com](http://wowkhmer.com)
 
 [Full List](https://github.com/samnang/krum/contributors)
 
+## License
+
+The source code for Krum is available under the [MIT License](http://www.opensource.org/licenses/MIT).
+
 ------
 
 Krum - a [ShareVisionTeam](http://sharevisionteam.org) project
