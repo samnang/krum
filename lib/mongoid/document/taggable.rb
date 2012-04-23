@@ -30,18 +30,16 @@ module Mongoid
         index :tags
       end
 
-      module InstanceMethods
-        def tag_list=(tags)
-          self.tags = tags.split(",").collect{ |t| t.strip }.delete_if{ |t| t.blank? }
-        end
+      def tag_list=(tags)
+        self.tags = tags.split(",").collect{ |t| t.strip }.delete_if{ |t| t.blank? }
+      end
 
-        def tag_list
-          self.tags.join(", ") if tags
-        end
+      def tag_list
+        self.tags.join(", ") if tags
+      end
 
-        def has_tag?(tag_name)
-          tags.include?(tag_name.to_s)
-        end
+      def has_tag?(tag_name)
+        tags.include?(tag_name.to_s)
       end
 
       module ClassMethods
