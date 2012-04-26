@@ -17,4 +17,5 @@
 //= require bootstrap-transition
 //= require chosen.jquery.min
 //= require jquery.masonry.min
+//= require jquery.infinitescroll.min
 //= require_tree .

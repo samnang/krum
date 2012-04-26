@@ -25,7 +25,7 @@ describe Group do
 
   describe ".search_for" do
     context "keyword is blank" do
-      it "returns all random groups" do
+      it "returns collection groups" do
         2.times { Factory(:group) }
         blank_keyword = nil
 

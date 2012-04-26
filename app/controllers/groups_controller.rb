@@ -3,6 +3,7 @@ class GroupsController < ApplicationController
 
   def index
     @groups = Group.search_for(params[:q])
+    @groups = @groups.page(params[:page]).per(10)
     @groups = GroupDecorator.decorate(@groups)
   end
 

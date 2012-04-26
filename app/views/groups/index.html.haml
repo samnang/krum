@@ -4,3 +4,5 @@
 
 %ul#groups.thumbnails
   = render partial: 'group_card', collection: @groups, as: :group
+
+= paginate @groups

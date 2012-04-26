@@ -10,6 +10,7 @@ gem 'simple_form', '~> 2.0.0'
 gem "draper"
 gem 'haml-rails', '>= 0.3.4'
 gem 'thin'
+gem 'kaminari'
 
 # Gems used only for assets and not required
 # in production environments by default.
