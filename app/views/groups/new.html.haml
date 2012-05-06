@@ -1,4 +1,4 @@
-= simple_form_for @group do |f|
+= simple_form_for @group, :defaults => {:input_html => {:class => 'span5'}} do |f|
   = f.error_notification if f.error_notification
 
   %legend New Group
