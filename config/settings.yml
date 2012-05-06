@@ -1,4 +1,5 @@
-username: admin 
-password: password
-sender_email: noreply@sharevisionteam.org
-recipient_email: samnang.chhun@gmail.com
+USERNAME: 'admin'
+PASSWORD: 'password'
+SENDER_EMAIL: 'noreply@sharevisionteam.org'
+RECIPIENT_EMAIL: 'samnang.chhun@gmail.com'
+S3_BUCKET_NAME: 'dev.krum'

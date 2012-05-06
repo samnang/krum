@@ -80,9 +80,7 @@ module Krum
       g.fixture_replacement :factory_girl, :dir => "spec/factories"
     end
 
-    config.middleware.use "ServeGridfsImage"
-
     # Load app settings
-    YAML.load_file("#{Rails.root}/config/settings.yml").each {|k, v| config.send("#{k}=", ENV[k] || v) }
+    YAML.load_file("#{Rails.root}/config/settings.yml").each {|k, v| config.send("#{k.downcase}=", ENV[k] || v) }
   end
 end

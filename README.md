@@ -9,7 +9,7 @@ It should be a directory to list groups in local community, so it could helps pe
 * SimpleForm + Twitter Bootstrap
 * Mongoid
 * Drapper
-* Carrierwave (Upload to GridFS)
+* Carrierwave (Upload to S3)
 * CoffeeScript
 * Haml
 * RSpec
