@@ -6,10 +6,12 @@ gem 'jquery-rails'
 gem "mongoid", "~> 2.4"
 gem "bson_ext", "~> 1.5"
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
+gem 'rmagick'
 gem 'simple_form', '~> 2.0.0'
 gem "draper"
 gem 'haml-rails', '>= 0.3.4'
 gem 'thin'
+gem "fog", "~> 1.3.1"
 
 # Gems used only for assets and not required
 # in production environments by default.
