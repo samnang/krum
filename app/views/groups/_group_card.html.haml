@@ -2,9 +2,10 @@
   %div.group-card.thumbnail[group.model]
     = group.delete_link
 
-    = group.logo_link
+    .header
+      %p= group.logo_link
+      %p.group-name= group.name_link
     .caption
-      %p= group.name_link
       %p= group.url_2_link
       %p= group.email_link
       %p.description= group.description

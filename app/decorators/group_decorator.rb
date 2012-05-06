@@ -8,7 +8,7 @@ class GroupDecorator < ApplicationDecorator
   end
 
   def name_link
-    h.link_to group.name, group.url_1 unless group.avatar?
+    h.link_to group.name, group.url_1
   end
 
   def email_link
