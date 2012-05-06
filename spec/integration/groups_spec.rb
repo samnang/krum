@@ -64,8 +64,8 @@ end
 feature "Searching groups" do
   background do
     Factory(:group, name: "Found Group", tags: ['education', 'ruby', 'rails'])
-    Factory(:group, name: "Group2", tags: ['javascript', 'nodejs'])
-    Factory(:group, name: "Group3", tags: ['javascript', 'ruby'])
+    Factory(:group, name: "Foo", tags: ['javascript', 'nodejs'])
+    Factory(:group, name: "Bar", tags: ['javascript', 'ruby'])
   end
 
   scenario "found by name" do
@@ -74,8 +74,8 @@ feature "Searching groups" do
     search_with("Found Group")
 
     page.should have_content("Found Group")
-    page.should_not have_content("Group2")
-    page.should_not have_content("Group3")
+    page.should_not have_content("Foo")
+    page.should_not have_content("Bar")
   end
 
   scenario "found by tag" do
@@ -84,8 +84,8 @@ feature "Searching groups" do
     search_with("education")
 
     page.should have_content("Found Group")
-    page.should_not have_content("Group2")
-    page.should_not have_content("Group3")
+    page.should_not have_content("Foo")
+    page.should_not have_content("Bar")
   end
 
   def search_with(query)

@@ -27,7 +27,6 @@ module Mongoid
 
       included do
         field :tags, :type => Array
-        index :tags
       end
 
       def tag_list=(tags)

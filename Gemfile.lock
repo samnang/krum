@@ -1,3 +1,12 @@
+GIT
+  remote: git://github.com/mauriciozaffari/mongoid_search.git
+  revision: e493a9e5b8a0e5d7d989ff4be7693920822335c5
+  specs:
+    mongoid_search (0.2.7)
+      bson_ext (>= 1.2)
+      fast-stemmer (~> 1.0.0)
+      mongoid (>= 2.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -72,6 +81,7 @@ GEM
     factory_girl_rails (1.7.0)
       factory_girl (~> 2.6.0)
       railties (>= 3.0.0)
+    fast-stemmer (1.0.1)
     ffi (1.0.11)
     haml (3.1.4)
     haml-rails (0.3.4)
@@ -210,6 +220,7 @@ DEPENDENCIES
   kaminari
   launchy
   mongoid (~> 2.4)
+  mongoid_search!
   pry
   pry-rails
   quiet_assets

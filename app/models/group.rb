@@ -1,6 +1,7 @@
 class Group
   include Mongoid::Document
   include Mongoid::Document::Taggable
+  include Mongoid::Search
   include Mongoid::Timestamps
 
   field :name,        type: String
@@ -8,6 +9,8 @@ class Group
   field :url_2,       type: String
   field :email,       type: String
   field :description, type: String
+
+  search_in :name, :description, :tags
 
   mount_uploader :avatar, AvatarUploader
 
@@ -18,8 +21,7 @@ class Group
   def self.search_for(keyword)
     return self.unscoped if keyword.blank?
 
-    query = /#{keyword}/i
-    any_of({name: query}, {tags: query})
+    search(keyword)
   end
 
   private

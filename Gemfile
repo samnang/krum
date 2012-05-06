@@ -4,6 +4,7 @@ gem 'rails', '3.2.2'
 
 gem 'jquery-rails'
 gem "mongoid", "~> 2.4"
+gem 'mongoid_search', :git => 'git://github.com/mauriciozaffari/mongoid_search.git'
 gem "bson_ext", "~> 1.5"
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 gem 'simple_form', '~> 2.0.0'
