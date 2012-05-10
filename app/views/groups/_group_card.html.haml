@@ -1,6 +1,6 @@
 %li.span4
   %div.group-card.thumbnail[group.model]
-    = group.delete_link
+    = group.delete_link if admin_signed_in?
 
     .header
       %p= group.logo_link
