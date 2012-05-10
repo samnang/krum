@@ -2,7 +2,7 @@ class GroupDecorator < ApplicationDecorator
   decorates :group
 
   def logo_link
-    h.link_to h.image_tag(group.avatar.url, alt: group.name), group.url_1
+    h.link_to h.image_tag(group.avatar.url(:thumb), alt: group.name), group.url_1
   end
 
   def name_link
