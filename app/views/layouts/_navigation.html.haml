@@ -7,7 +7,7 @@
         %li.active
           = link_to "Groups", groups_path
         %li
-          = link_to "Events", "#"
+          = link_to "Events", events_path
       %form.navbar-search.pull-right{action: groups_path}
         %input.search-query.span3{name: "q", value: params[:q], placeholder: "Search", type: "text"}
         %input.submit-button{value: "Search", type: "submit"}

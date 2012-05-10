@@ -7,4 +7,5 @@ Krum::Application.routes.draw do
       post :submit
     end
   end
+  resources :events, :only => :index
 end
