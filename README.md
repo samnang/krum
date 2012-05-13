@@ -2,6 +2,9 @@
 
 It should be a directory to list groups in local community, so it could helps people that have the same interests found each other.
 
+![Krum - Home Page](https://img.skitch.com/20120513-rgi38qe8d2f425nx1nwcr26ett.png "Home Page")
+
+
 ## What we used in this project:
 
 * Ruby 1.9.3
