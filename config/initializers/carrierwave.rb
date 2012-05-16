@@ -7,6 +7,6 @@ CarrierWave.configure do |config|
   }
   config.fog_directory  = Krum.config.s3_bucket_name
   config.fog_host       = "http://#{Krum.config.s3_bucket_name}.s3.amazonaws.com"
-  config.fog_public     = false
+  config.fog_public     = true
   config.fog_attributes = {'Cache-Control'=>'max-age=315576000'}
 end
