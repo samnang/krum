@@ -25,6 +25,39 @@ feature "Viewing groups" do
   end
 end
 
+feature "Searching groups" do
+  background do
+    Factory(:group, name: "Found Group", tags: ['education', 'ruby', 'rails'])
+    Factory(:group, name: "Foo", tags: ['javascript', 'nodejs'])
+    Factory(:group, name: "Bar", tags: ['javascript', 'ruby'])
+  end
+
+  scenario "found by name" do
+    visit root_path
+
+    search_with("Found Group")
+
+    page.should have_content("Found Group")
+    page.should_not have_content("Foo")
+    page.should_not have_content("Bar")
+  end
+
+  scenario "found by tag" do
+    visit root_path
+
+    search_with("education")
+
+    page.should have_content("Found Group")
+    page.should_not have_content("Foo")
+    page.should_not have_content("Bar")
+  end
+
+  def search_with(query)
+    fill_in "q", with: query
+    click_on "Search"
+  end
+end
+
 feature "Adding a new group" do
   background do
     Factory(:group, tags: ['ruby', 'rails'])
@@ -61,35 +94,19 @@ feature "Adding a new group" do
   end
 end
 
-feature "Searching groups" do
-  background do
-    Factory(:group, name: "Found Group", tags: ['education', 'ruby', 'rails'])
-    Factory(:group, name: "Foo", tags: ['javascript', 'nodejs'])
-    Factory(:group, name: "Bar", tags: ['javascript', 'ruby'])
-  end
+feature "Deleting a group" do
+  scenario "deleted successfully" do
+    to_be_deleted_group = Factory(:group, name: "Foo")
 
-  scenario "found by name" do
+    admin_sign_in
+
     visit root_path
 
-    search_with("Found Group")
+    within("#group_#{to_be_deleted_group.id}") do
+      click_link "Delete Group"
+    end
 
-    page.should have_content("Found Group")
+    page.should have_content("Group has been deleted successfully.")
     page.should_not have_content("Foo")
-    page.should_not have_content("Bar")
-  end
-
-  scenario "found by tag" do
-    visit root_path
-
-    search_with("education")
-
-    page.should have_content("Found Group")
-    page.should_not have_content("Foo")
-    page.should_not have_content("Bar")
-  end
-
-  def search_with(query)
-    fill_in "q", with: query
-    click_on "Search"
   end
 end
