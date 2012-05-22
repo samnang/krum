@@ -26,7 +26,7 @@ describe Group do
   describe ".search_for" do
     context "keyword is blank" do
       it "returns collection groups" do
-        2.times { Factory(:group) }
+        FactoryGirl.create_list(:group, 2)
         blank_keyword = nil
 
         results = Group.search_for(blank_keyword)
