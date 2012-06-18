@@ -110,3 +110,23 @@ feature "Deleting a group" do
     page.should_not have_content("Foo")
   end
 end
+
+feature "Submiting a new group", :js => true do
+  scenario "valid information" do
+    visit root_path
+
+    #NOTE: somehow can't get click_link("Submit New Group") working
+    page.find(".submit-new-group").click
+
+    within("#new-group-modal") do
+      fill_in 'Name', with: 'My New Group'
+      fill_in 'Url', with: 'http://domain.org'
+      fill_in 'Email', with: 'info@domain.org'
+
+      click_on "Submit"
+    end
+
+    page.should have_content("The group will be moderated, and hopefully it will be added to site soon.")
+    ActionMailer::Base.deliveries.count.should == 1
+  end
+end
