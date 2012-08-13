@@ -19,7 +19,7 @@ class Group
   before_validation :clean_empty_tags
 
   def self.search_for(keyword)
-    return self.unscoped if keyword.blank?
+    return self.scoped if keyword.blank?
 
     search(keyword)
   end
