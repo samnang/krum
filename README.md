@@ -8,7 +8,7 @@ It should be a directory to list groups in local community, so it could helps pe
 ## What we used in this project:
 
 * Ruby 1.9.3
-* Rails 3.2.2
+* Rails 3.2.7
 * SimpleForm + Twitter Bootstrap
 * Mongoid
 * Drapper
