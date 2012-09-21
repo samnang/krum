@@ -4,9 +4,9 @@
       %a.brand{href: root_path}
         Krum
       %ul.nav
-        %li.active
+        %li{class: ("active" if controller_name == "groups")}
           = link_to "Groups", groups_path
-        %li
+        %li{class: ("active" if controller_name == "events")}
           = link_to "Events", events_path
       %form.navbar-search.pull-right{action: groups_path}
         %input.search-query.span3{name: "q", value: params[:q], placeholder: "Search", type: "text"}
