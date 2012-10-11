@@ -4,7 +4,11 @@ class GroupsController < ApplicationController
   def index
     @groups = Group.search_for(params[:q])
     @groups = @groups.page(params[:page]).per(10)
-    @groups = GroupDecorator.decorate(@groups)
+
+    respond_to do |format|
+      format.html { @groups = GroupDecorator.decorate(@groups) }
+      format.json { render :json => @groups.to_json(:except => :_keywords) }
+    end
   end
 
   def new

@@ -8,7 +8,7 @@ describe Group do
 
     group.tags.should == ["Ruby"]
   end
-  
+
   describe "validations" do
     it 'has a valid factory' do
       Factory.build(:group).should be_valid
@@ -48,7 +48,6 @@ describe Group do
 
       it "returns matched groups by tag" do
         results = Group.search_for("Ruby")
-
         results.should have(2).groups
         results.should_not include mismatched_group
       end
