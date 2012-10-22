@@ -5,7 +5,8 @@ require 'rspec/rails'
 require 'capybara/rspec'
 require 'rspec/autorun'
 
-Capybara.javascript_driver = :webkit
+require 'capybara/poltergeist'
+Capybara.javascript_driver = :poltergeist
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.

@@ -115,14 +115,16 @@ feature "Submiting a new group", :js => true do
   scenario "valid information" do
     visit root_path
 
-    #NOTE: somehow can't get click_link("Submit New Group") working
     page.find(".submit-new-group").click
+
+    sleep(0.5)
 
     within("#new-group-modal") do
       fill_in 'Name', with: 'My New Group'
       fill_in 'Url', with: 'http://domain.org'
       fill_in 'Email', with: 'info@domain.org'
 
+      find_button("Submit").trigger('click')
       click_on "Submit"
     end
 
