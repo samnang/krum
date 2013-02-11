@@ -18,6 +18,8 @@ class Group
 
   before_validation :clean_empty_tags
 
+  default_scope order_by(:updated_at => :desc)
+
   def self.search_for(keyword)
     return self.scoped if keyword.blank?
 
