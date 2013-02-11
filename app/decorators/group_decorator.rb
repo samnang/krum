@@ -22,6 +22,12 @@ class GroupDecorator < ApplicationDecorator
         title: "Delete Group",
         confirm: "Are you sure, you want to delete this group?",
         method: :delete,
-        class: 'delete-group icon-remove'
+        class: 'icon-remove'
+  end
+
+  def edit_link
+    h.link_to "Edit Group", h.edit_group_path(group),
+        title: "Edit Group",
+        class: 'icon-edit'
   end
 end

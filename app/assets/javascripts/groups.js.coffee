@@ -14,7 +14,7 @@ jQuery ->
 
     toggle_delete_button: ->
       $('#groups').on 'hover', '.group-card', ->
-        $(@).find('a.delete-group').toggle()
+        $(@).find('.action').toggle()
 
     arrange_layout: ->
       $container = $('.thumbnails')

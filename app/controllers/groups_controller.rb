@@ -1,5 +1,6 @@
 class GroupsController < ApplicationController
   before_filter :admin_required, :only => [:new, :create, :destroy]
+  before_filter :load_group, :only => [:edit, :update, :destroy]
 
   def index
     @groups = Group.search_for(params[:q])
@@ -15,6 +16,9 @@ class GroupsController < ApplicationController
     @group = Group.new
   end
 
+  def edit
+  end
+
   def create
     @group = Group.new(params[:group])
     if @group.save
@@ -24,8 +28,15 @@ class GroupsController < ApplicationController
     end
   end
 
+  def update
+    if @group.update_attributes(params[:group])
+      redirect_to groups_path, notice: "Group has been updated successfully."
+    else
+      render :edit
+    end
+  end
+
   def destroy
-    @group = Group.find(params[:id])
     @group.destroy
 
     redirect_to groups_path, notice: "Group has been deleted successfully."
@@ -41,5 +52,11 @@ class GroupsController < ApplicationController
     end
 
     redirect_to :back
+  end
+
+  private
+
+  def load_group
+    @group = Group.find(params[:id])
   end
 end
